@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>Link Excersice</title>
+    </head>
+    
+    <body>
+        <h1><a name="top">General Information Link</a></h1>
+        
+        <!-- Relative Link -->
+        Click <a href="download1.php/">Go to Download Page 1</a>
+        <br>
+        Click <a href="download2.php/">Go to Download Page 2</a>
+        <br>
+
+        <!-- Absolute Link -->
+        <a href="file:///C:/Users/End-User/OneDrive/Desktop/myweb/download1.php/logo_uitm.pdf">View Logo UiTM</a>
+        <br>
+        <a href="download2.php-20241113T042146Z-001/download2.php/statistic.html"> Get Data</a>
+
+        <hr size="3" color="black">
+
+        <!-- Local - Link to other pages within the current website -->
+         <a href="biodata.html" target="_blank">Biodata</a>
+         <a href="link.html" target="_blank">Link Excersice</a>
+
+         <p>
+            <!-- Creating Button using button onclick -->
+             <button onclick="document.location='biodata.html'">Biodata</button>
+             <button onclick="document.location='link.html'">Link Excersice</button>
+         </p>
+
+         <p>
+        <!-- Using image as hyperlink, local -->
+         <a href="biodata.html"><img src="images/home.png"></a>
+         <!-- Using image as hyperlink, global -->
+         <a href="https://www.instagram.com/tiiiiiiiiey._/"><img src="images/insta.png"></a>
+         <!-- Hyperlink to Email -->
+         <a href="mailto:izyatishah@gmail.com"><img src="images/email.png"></a>
+         <!-- Hyperlink to Telephone -->
+        <a href="tel:+601114210736"><img src="images/contect.png"></a>
+        </p>
+
+        <h1>UiTM Branches in Malaysia</h1>
+
+        <!-- Image Mapping-->
+         <img src="images/malaysia-map.jpg" usemap="#malaysia-map">
+        
+         <map name="malaysia-map">
+            <area target="_blank" alt="UiTM Johor" title="UiTM Johor" href="https://johor.uitm.edu.my/" coords="769,848,562,720" shape="rect">
+            <area target="_blank" alt="UiTM Negeri Sembilan" title="UiTM Negeri Sembilan" href="https://nsembilan.uitm.edu.my/" coords="494,670,45" shape="circle">
+            <area target="_blank" alt="UiTM Kedah" title="UiTM Kedah" href="https://kedah.uitm.edu.my/" coords="254,218,294,191,305,199,324,197,332,217,335,228,367,228,365,261,335,326,297,356,292,310,273,312" shape="poly">
+        </map>
+
+        <a href="#top">Back to Top</a>
+
+
+    </body>
+</html>

@@ -1,0 +1,686 @@
+<html>
+    <head>
+        <title>Aty's Website</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+
+         <!-- Background audio -->
+    <audio id="backgroundAudio" autoplay loop hidden>
+        <source src="audio/fallback.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <button id="autoplay" class="bg-pink-500 text-white px-4 py-2 rounded-full hidden">
+        <i class="fas fa-play"></i> Play Music
+    </button>
+
+    <script>
+        const audio = document.getElementById('backgroundAudio');
+        const playButton = document.getElementById('playButton');
+
+        // Ensure the audio starts in case of browser autoplay restrictions
+        document.body.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                playButton.classList.remove('hidden');
+                playButton.innerHTML = '<i class="fas fa-pause"></i> Pause Music';
+            }
+        });
+
+        playButton.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                playButton.innerHTML = '<i class="fas fa-pause"></i> Pause Music';
+            } else {
+                audio.pause();
+                playButton.innerHTML = '<i class="fas fa-play"></i> Play Music';
+            }
+        });
+
+        audio.volume = 0.2; // Lower the volume for background music
+    </script>
+
+        <style>
+            body {
+                font-family: 'Roboto', sans-serif;
+            }
+            .gradient-bg {
+                background: linear-gradient(to right, #c36f99, #ff80bf);
+            }
+            
+            table, tr, td, th {
+                border:3px solid #d87093;
+                border-collapse: collapse;
+            }
+
+        </style>
+    </head>
+    <body class="flex flex-col min-h-screen">
+        <header class="gradient-bg text-white p-4 flex justify-between items-center">
+            <div>
+                <h1 class="text-4xl font-bold">Aty</h1>
+                <p class="text-lg">Welcome to Aty Website!</p>
+            </div>
+            <body onload="startTime()" class="flex items-center justify-center min-h-screen bg-gray-100">
+                <div id="txt" class="text-2xl font-bold p-2 border-4 border-white-300 rounded-lg bg-pink shadow-lg"></div>
+                
+                <script>
+                    function startTime() {
+                        const today = new Date();
+                        let h = today.getHours();
+                        let m = today.getMinutes();
+                        let s = today.getSeconds();
+                        m = checkTime(m);
+                        s = checkTime(s);
+                        document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
+                        setTimeout(startTime, 1000);
+                    }
+                    
+                    function checkTime(i) {
+                        if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+                        return i;
+                    }
+                </script>
+            
+            
+            <nav>
+                <ul class="flex space-x-4">
+                <a class="text-lg hover:text-gray-300 transition duration-300" href="#" onclick="openPage('home')">Home</a>
+                <a class="text-lg hover:text-gray-300 transition duration-300" href="#" onclick="openPage('about')">About Me</a>
+                <a class="text-lg hover:text-gray-300 transition duration-300" href="#" onclick="openPage('interest')">Interest</a>
+                <a class="text-lg hover:text-gray-300 transition duration-300" href="#" onclick="openPage('contact')">Contact</a>
+                <a class="text-lg hover:text-gray-300 transition duration-300" href="#" onclick="openPage('gallery')">Gallery</a>
+                </ul>
+            </nav>
+            <div class="md:hidden">
+                <button class="text-2xl focus:outline-none" id="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            </div>
+            <div class="hidden md:hidden bg-purple-200" id="mobile-menu">
+                <a class="block px-4 py-2 text-lg hover:bg-purple-100 transition duration-300" href="#" onclick="openPage('home')">Home</a>
+                <a class="block px-4 py-2 text-lg hover:bg-purple-100 transition duration-300" href="#" onclick="openPage('about')">About Me</a>
+                <a class="block px-4 py-2 text-lg hover:bg-purple-100 transition duration-300" href="#" onclick="openPage('Interest')">Interest</a>
+                <a class="block px-4 py-2 text-lg hover:bg-purple-100 transition duration-300" href="#" onclick="openPage('contact')">Contact</a>
+                <a class="block px-4 py-2 text-lg hover:bg-purple-100 transition duration-300" href="#" onclick="openPage('gallery')">Gallery</a>
+            </div>
+        </header>
+
+        
+            
+        <section class="text-center py-20 bg-pink-200 tabcontent" id="home">
+            <main class="flex-grow hero-bg flex flex-col items-center justify-center text-center p-8">
+                
+                <h2 class="text-5xl font-bold mb-4">Welcome to Aty's World</h2>
+                <p class="text-lg mb-8">Discover more about me, my interests and my gallery</p>
+                <img src="images/greetinggif.gif" alt="Greeting" style="width:60px;height:60px;">
+                <a class="bg-pink-500 text-white py-3 px-4 rounded-full text-lg hover:bg-purple-700" href="biodata.html">Learn More</a>
+           
+                <br>
+
+                <h2>Aty want to say</h2>
+
+                <button onclick="myFunction()" class="bg-pink-500 text-white py-1 px-3 rounded-full hover:bg-pink-600 transition duration-300">Click here...</button>
+
+                <script>
+                function myFunction() {
+                alert("Hi My Love and Welcome! Enjoy your time on my website ");
+                }
+                
+                </script>
+                </section>
+                
+
+           
+
+        </div></main>
+        
+    <section class="py-20 bg-white tabcontent" id="about">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2">
+                    <img src="images/yatilaptop.png" style="float: left;"/>
+                </div>
+
+                <div class="md:w-1/2 md:pl-12 mt-8 md:mt-0">
+                    <li p class="text-lg mb-4 " >Hello! I'm Aty, I'm pursing my studies at UiTM Campus Rembau, where I am in course Information Management. My education is important to me, and I strive to apply the knowledge I gain towards building a successful career.</li></p>
+                    <li p class="text-lg mb-4">One of my favourite pastimes is shopping. I enjoy exploring new trends and finding unique items that reflect my style. Whether it's fashion, gadgets, or home decor, shopping gives me a sense of excitement and allows me to express my individuality.</li></p>
+                    <li p class="text-lg mb-4">I love watching movies, particularly romance, comedy and action. Although I used to go to the cinema with friends, I now enjoy the comfort of watching movies at home, especially since the pandemic. Additionally, music is a big part of my daily life. I enjoy listening to artists such as Lithe, Chase Atlantic, OVI WOOD, SWIM, Reed Wonder, Katy Perry, Sabrina Capenter, Sia and Justine Bieber. My favourite music genres include pop rock, R&B, and jazz. Other than that, I’m passionate about cars and their design. I enjoy exploring different makes and models.</li></p>
+                    <a class="bg-pink-500 text-white py-3 px-6 rounded-full hover:bg-purple-600 transition duration-300" href="biodata.html">More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gray-100 tabcontent" id="interest">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12"> My Interest</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+              
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/porsche6.jpg">
+                        <img src="images/porsche6.jpg" class="w-full h-48 object-cover rounded-t-lg" height="400" width="600"/></a>
+                        <h4 class="text-xl font-bold mt-4">Porsche</h4>
+                        <p class="text-gray-700 mt-2">A sleek red sports car with a modern design, perfect for high-speed adventures.</p>
+                     </div></div>
+
+                     <div class="bg-white rounded-lg shadow-md p-4">
+                        <div class="zoom"> 
+                        <a href="images/mazda2.jpg">
+                            <img src="images/mazda2.jpg" class="w-full h-48 object-cover rounded-t-lg" height="400" width="600"/></a>
+                            <h4 class="text-xl font-bold mt-4">Mazda</h4>
+                            <p class="text-gray-700 mt-2"> A luxurious black sedan with a sleek design, offering comfort and style for city driving.</p>
+                         </div></div>
+
+                         <div class="bg-white rounded-lg shadow-md p-4">
+                            <div class="zoom">
+                            <a href="images/mercedes2.jpg">
+                                <img src="images/mercedes2.jpg" class="w-full h-48 object-cover rounded-t-lg" height="400" width="600"/></a>
+                                <h4 class="text-xl font-bold mt-4">Mercedes</h4>
+                                <p class="text-gray-700 mt-2"> A classic blue muscle car with a powerful engine, embodying the spirit of the 70s.</p>
+                            </div></div>
+                     </div>
+                     <h2 class="text-4xl font-bold text-center mb-12 mt-12">Favorite Song</h2>
+                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <div class="zoom">
+                            <img src="images/atlantic1.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600">
+                            <h4 class="text-xl font-bold mt-4"> Consume</h4>
+                            <p class="text-gray-700 mt-2">One of my favorite songs is Consume by Chase Atlantic. Their music blends pop, R&B, and rock elements.</p>
+                            <a class="text-blue-500 hover:underline" href="https://open.spotify.com/track/0X2bh8NVQ8svDQIn2AdCbW?si=564032a0c07b4073" target="_blank">Listen on Spotify</a>
+                        </div></div>
+
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <div class="zoom">
+                            <img src="images/daniel1.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600">
+                            <h4 class="text-xl font-bold mt-4">Lose Face</h4>
+                            <p class="text-gray-700 mt-2">One of my favorite songs is Lose Face by Daniel Di Angelio. Their music same as Chase Atlantic blends pop, R&B, and rock elements.</p>
+                            <a class="text-blue-500 hover:underline" href="https://open.spotify.com/track/4WyRR7iO0hufoCKZ1kiguz?si=393f436a651a4b4a" target="_blank">Listen on Spotify</a>
+                        </div></div>
+
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <div class="zoom">
+                            <img src="images/leith1.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600">
+                            <h4 class="text-xl font-bold mt-4">Pessimist</h4>
+                            <p class="text-gray-700 mt-2">Josiah Ramel, professionally known as Lithe, is an Australian rapper, singer-songwriter, and record producer.</p>
+                            <a class="text-blue-500 hover:underline" href="https://open.spotify.com/track/0X2bh8NVQ8svDQIn2AdCbW?si=564032a0c07b4073" target="_blank">Listen on Spotify</a>
+                        </div></div>
+
+                     </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    
+    <body>
+    <section class="py-20 bg-white tabcontent" id="contact">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">Contact Me</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2">
+                    <img src="images/yatihitam2.png" class="img"/>
+                </div>
+                
+        <script src="https://cdn.tailwindcss.com">
+        </script>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;display=swap" rel="stylesheet"/>
+        <body class="bg-white flex items-center justify-center min-h-screen">
+            <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-center">
+           
+            <div class="md:w-1/2 p-4">
+                <h1 class="text-5xl font-bold mb-8">
+                    
+                </h1>
+                <form class="space-y-4">
+                    <div>
+                        <label class="block text-lg font-medium" for="name">Name*</label>
+                        <input class="w-full p-3 border border-gray-300 rounded-md bg-gray-100" id="name" name="name" placeholder="Your name" type="text"/>
+                    </div>
+                    <div>
+                        <label class="block text-lg font-medium" for="email"> Your Email*</label>
+                        <input class="w-full p-3 border border-gray-300 rounded-md bg-gray-100" id="email" name="email" placeholder="Your email address" type="email"/>
+                    </div>
+                    <div>
+                        <label class="block text-lg font-medium" for="email"> Message*</label>
+                        <textarea class="w-full p-3 border border-gray-300 rounded-md bg-gray-100" id="message" name="message" placeholder="Enter your message"></textarea>
+                    </div>
+                    <div>
+                        <button class="bg-pink-500 text-white py-3 px-6 rounded-full hover:bg-purple-600 transition duration-300" type="submit">Submit</button>
+                        
+                    </div>
+                </form>
+            </div>
+            </div>
+            </div>
+            
+        </body>
+    </section>
+</body>
+
+    <section class="py-20 bg-gray-800 tabcontent" id="gallery">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 text-white">Gallery</h2>
+            <div class="flex flex-col md:flex-row items-center"></div>
+            <script src="https://cdn.tailwindcss.com">
+            </script>
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+            <style>
+                .zoom:hover img {
+                    transform: scale(1.5);
+                    transition: trasnform 0.2s ease-in-out;
+                }
+            </style>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/withustaz.jpg">
+                    <img src="images/withustaz.jpg" class="w-full h-48 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center">With Ustaz Afiq Meow</h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/withtcrsu.jpg">
+                    <img src="images/withtcrsu.jpg" class="w-full h-48 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center"> With Techer Suhaila</h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/yatikecik.jpg">
+                    <img src="images/yatikecik.jpg" class="w-full h-48 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center"> Me When 6 Years Old</h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/classmatehitam.jpg">
+                    <img src="images/classmatehitam.jpg" class="w-full h-48 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center"> Classmate with Black Outfit</h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/classmatebatik.jpg">
+                    <img src="images/classmatebatik.jpg" class="w-full h-48 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center"> Classmate with Kedah Outfit</h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/kelassirbakri.jpg">
+                    <img src="images/kelassirbakri.jpg" class="w-full h-48 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center">Class with Sir Bakery</h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/sungai.jpg">
+                    <img src="images/sungai.jpg" class="w-full h-48 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center">With My Fwenddds</h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/groupcrochet.jpg">
+                    <img src="images/groupcrochet.jpg" class="w-full h-48 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center">Group ENT Crochet</h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/kakakyati.jpg">
+                    <img src="images/kakakyati.jpg" class="w-full h-48 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center">With my Sisturr</h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/dekanramai.jpg">
+                    <img src="images/dekanramai.jpg" class="w-full h-48 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center">Dean Day</h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/classmatenew.jpg">
+                    <img src="images/classmatenew.jpg" class="w-full h-48 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center">Classmate Last Sem</h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/class3.jpg">
+                    <img src="images/class3.jpg" class="w-full h-48 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center">Get Ready for Take a Photo</h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/kakakpantry.jpg">
+                    <img src="images/kakakpantry.jpg" class="w-full h-48 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center">With TMS Sister</h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/smahmy.jpg">
+                    <img src="images/smahmy.jpg" class="w-full h-48 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center">Sport ft. Study</h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/convosmahmy.jpg">
+                    <img src="images/convosmahmy.jpg" class="w-full h-48 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center">Convo High School</h4>
+                </div></div>
+
+                <h2 class="text-4xl font-bold text-center mb-12 mt-12 text-white">Favorite Momment</h2>
+                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+                     <p>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/yatifirstdate.jpg">
+                    <img src="images/yatifirstdate.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center">Our First Date</h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/skyluge1.jpg>">
+                    <img src="images/skyluge1.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center">Sky Luge Date</h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/grandturismo.jpg">
+                    <img src="images/grandturismo.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center">Race Car Date</h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/hispov1.jpg">
+                    <img src="images/hispov1.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center ">Cinema Date</h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/hispov2.jpg">
+                    <img src="images/hispov2.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center">Texas BBQ</h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/hispov3.jpg">
+                    <img src="images/hispov3.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center">Jibril Lunch</h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/immersive date.jpg">
+                    <img src="images/immersive date.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center">Immersive Date</h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">\
+                    <div class="zoom">
+                    <a href="images/photobooth.jpg">
+                    <img src="images/photobooth.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center">PhotoBooth Date</h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/withlove.jpg">
+                    <img src="images/withlove.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center">HuHu</h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/landscapekete.jpg">
+                    <img src="images/landscapekete.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center">Grand Turismo Date</h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/lugehand.jpg"></a>
+                    <img src="images/lugehand.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center">Sky Luge Check</h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/baby2.jpg"></a>
+                    <img src="images/baby2.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center">hihi</h4>
+                </div></div>
+
+                <h2 class="text-4xl font-bold text-center mb-12 mt-12 text-white">MySelf</h2>
+                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+                     <p>
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/yatirayamerah.jpg">
+                    <img src="images/yatirayamerah.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center"></h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/yati1.jpg">
+                    <img src="images/yati1.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center"></h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/yati5.jpg">
+                    <img src="images/yati5.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center"></h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/yati3pentas.jpg">
+                    <img src="images/yati3pentas.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center"></h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/yati4.jpg">
+                    <img src="images/yati4.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center"></h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/yati6.jpg">
+                    <img src="images/yati6.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center"></h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/yatibiru.jpg">
+                    <img src="images/yatibiru.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center"></h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/yatiselfiebiru.jpg">
+                    <img src="images/yatiselfiebiru.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center"></h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/yatipresent.jpg">
+                    <img src="images/yatipresent.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center"></h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/yatiblazer.jpg">
+                    <img src="images/yatiblazer.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center"></h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/yaticamera.jpg">
+                    <img src="images/yaticamera.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center"></h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/yatibanknegara.jpg">
+                    <img src="images/yatibanknegara.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center"></h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/yatibunga.jpg">
+                    <img src="images/yatibunga.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center"></h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/yatiputih.jpg">
+                    <img src="images/yatiputih.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center"></h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/yatipink.jpg">
+                    <img src="images/yatipink.jpg" class="w-full h-64 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center"></h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/yatikecik3.jpg">
+                    <img src="images/yatikecik3.jpg" class="w-full h-48 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center"></h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/yatigenting2.jpg">
+                    <img src="images/yatigenting2.jpg" class="w-full h-48 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center"></h4>
+                </div></div>
+
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <div class="zoom">
+                    <a href="images/yati.jpg">
+                    <img src="images/yati.jpg" class="w-full h-48 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center"></h4>
+                </div></div>
+
+                <video>
+                  <div class="bg-white rounded-lg shadow-md p-4">
+                    <source src="video/yativid1.mp4">
+                    <source src="video/yativid1.mp4" class="w-full h-48 object-cover rounded-t-lg" height="400" width="600"/></a>
+                    <h4 class="text-xl font-bold mt-4 text-center"></h4>
+                </div></div>  
+
+                <br>
+                </p></div>
+        
+    </section>
+    <footer class="bg-gray-800 text-white py-6 ">
+        <div class="container mx-auto text-center">
+        
+            &copy; <span id="currentDateTime"></span> Aty Website. All Rights Reserved.
+        
+    
+        <script>
+            // Function to update the date and time
+            function updateDateTime() {
+                const now = new Date();
+    
+                // Format the date
+                const options = { day: 'numeric', month: 'long', year: 'numeric' };
+                const formattedDate = now.toLocaleDateString('en-US', options);
+    
+                // Format the time
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const seconds = String(now.getSeconds()).padStart(2, '0');
+                const formattedTime = `${hours}:${minutes}:${seconds}`;
+    
+                // Combine date and time
+                document.getElementById('currentDateTime').textContent = `${formattedDate}, ${formattedTime}`;
+            }
+    
+            // Initial call
+            updateDateTime();
+    
+            // Update time every second
+            setInterval(updateDateTime, 1000);
+        </script>
+            <div class="flex justify-center space-x-4">
+                <a class="hover:text-gray-400" href="https://www.instagram.com/tiiiiiiiiey._" target="_blank">
+                    <i class="fab fa-instagram text-2xl"></i>
+                </a>
+                <a class="hover:text-gray-400" href="mailto:izyatishah@gmail.com">
+                    <i class="fas fa-envelope text-2xl"></i>
+                </a>
+                <a class="hover:text-gray-400" href="tel:01114210736">
+                    <i class="fas fa-phone text-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+    <script>
+        function openPage(pageName) {
+            var i, tabcontent;
+            tabcontent= document.getElementsByClassName("tabcontent");
+            for (i=0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display ="none";
+            }
+            document.getElementById(pageName).style.display = "block";
+        }
+
+        //set default open tab
+        document.addEventListener("DOMContentLoaded", function() {
+            openPage('home');
+        });
+
+        // Mobile menu toggle
+        document.getElementById('menu-btn').addEventListener('click', function() {
+            var mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+            } else {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
